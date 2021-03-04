@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 require('dotenv').config();
 require('./database');
 const app = express();
@@ -7,6 +8,12 @@ const app = express();
 //MIDDLEWARES
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+const corsOptions = {
+    origin: '*', // Reemplazar con dominio
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+app.use(cors(corsOptions));
 
 //IMP ROUTES
 const main = require('./routes/mainRoute');
