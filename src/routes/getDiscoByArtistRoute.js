@@ -8,7 +8,7 @@ router.get('/:artist', async (req, res) => {
     try {
         const band = req.params.artist;
         const artist = capitalCase(band);
-        const disco = await Discos.find({ "artist.name": artist });;
+        const disco = await Discos.find({ "artist.name": artist }, {"album.name": 1, "album.year": 1, "album.score": 1}, {sort:{"album.score": -1}});
         if (disco[0] === undefined) {
             res.status(404).json({ messageError: 'Artist Not Found' })
         } else {

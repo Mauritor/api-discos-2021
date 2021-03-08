@@ -8,7 +8,7 @@ router.get('/:year', async (req, res) => {
         const year = req.params.year;
         const yearString = year.toString();
 
-        const disco = await Discos.find({ "album.year": yearString });
+        const disco = await Discos.find({ "album.year": yearString }, {"artist.name": 1, "album.name": 1, "album.year": 1});
         if (disco[0] === undefined) {
             res.status(404).json({ message: 'No hay discos con ese año' })
         } else {
