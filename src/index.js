@@ -1,13 +1,11 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 require('dotenv').config();
 require('./database');
 const app = express();
 
 //MIDDLEWARES
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.json());
 
 const corsOptions = {
     origin: '*', // Reemplazar con dominio
