@@ -22,6 +22,7 @@ const getDiscoByYear = require('./routes/getDiscoByYearRoute');
 const getDiscoByGenre = require('./routes/getDiscosByGenreRoute');
 const getDiscoById = require('./routes/getDiscoByIdRoute');
 const deleteDisco = require('./routes/deleteDiscoRoute');
+const quantities = require('./routes/getQuantitiesRoute');
 const updateDiscoOne = require('./routes/updateDiscoOneRoute');
 const updateDiscoAll = require('./routes/updateDiscoAllRoute');
 
@@ -35,6 +36,7 @@ app.use('/api/discos/genre', getDiscoByGenre);
 app.use('/api/discos/delete', deleteDisco);
 app.use('/api/discos/update', updateDiscoOne);
 app.use('/api/discos/id', getDiscoById);
+app.use('/api/discos/quantities', quantities);
 app.use('/api/discos/update', updateDiscoAll);
 
 app.set('PORT', process.env.PORT || 3001);
